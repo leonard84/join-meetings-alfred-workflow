@@ -301,12 +301,12 @@ fn main_flow<'a>(
             .conference_data
             .into_iter()
             .flat_map(|c| c.entry_points.into_iter().flat_map(|e| e.into_iter()))
-            .find_map(|e| e.uri.and_then(|u| extract_zoom_link(u)));
+            .find_map(|e| e.uri.and_then(extract_zoom_link));
 
         let zoom = e
             .description
-            .and_then(|d| extract_zoom_link(d))
-            .or(e.location.and_then(|l| extract_zoom_link(l)))
+            .and_then(extract_zoom_link)
+            .or(e.location.and_then(extract_zoom_link))
             .or(meeting_code);
 
         let summary = e.summary.unwrap();
