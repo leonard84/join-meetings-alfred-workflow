@@ -364,12 +364,23 @@ mod tests {
         assert_eq!(None, extract_zoom_link(txt));
     }
 
+    #[test]
+    fn test_google_meeting() {
+        let txt = "https://meet.google.com/tik-nahf-tok".to_owned();
+
+        assert_eq!(
+            Some("https://meet.google.com/tik-nahf-tok".to_owned()),
+            extract_zoom_link(txt)
+        );
+    }
+
     #[ignore]
     #[test]
-    fn run_search() {
+    // Disabled by default, since it requires a valid Google token and depends on the current calendar
+    fn run_search_manually() {
         let arg_vec = vec!["search"];
 
         let matches = create_app_config().get_matches_from(arg_vec);
-        assert_eq!(perform_cli_action(matches).len(), 2);
+        assert_eq!(perform_cli_action(matches).len(), 0);
     }
 }
