@@ -117,15 +117,15 @@ jobs:
         steps:
             # Download published artifact
             - name: Download artifact
+              id: download
               uses: actions/download-artifact@v2
               with:
                   name: alfredworkflow
-                  path: join-meetings-alfred-workflow.alfredworkflow
 
             - name: Release
               uses: softprops/action-gh-release@v1
               with:
                   generate_release_notes: true
                   draft: true
-                  files: |
-                      *.alfredworkflow
+                  fail_on_unmatched_files: true
+                  files: ${{steps.download.outputs.download-path}}/join-meetings-alfred-workflow.alfredworkflow
