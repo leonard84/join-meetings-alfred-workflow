@@ -1,6 +1,6 @@
 [package]
 name = "join-meetings-alfred-workflow"
-version = "1.0.0"
+version = "2.0.0"
 authors = ["Gerolf Seitz <gerolf.seitz@gmail.com>", "Leonard Brünings <lord_damokles@gmx.net>"]
 edition = "2021"
 

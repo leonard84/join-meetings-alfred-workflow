@@ -368,7 +368,7 @@ checksum = "1306f3464951f30e30d12373d31c79fbd52d236e5e896fd92f96ec7babbbe60b"
 
 [[package]]
 name = "join-meetings-alfred-workflow"
-version = "1.0.0"
+version = "2.0.0"
 dependencies = [
  "alfred",
  "chrono",
