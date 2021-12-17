@@ -2,6 +2,7 @@
 
 ## TL;DR
 Directly join [**Zoom**](https://www.zoom.us) meetings scheduled in **Google Calendar** via [**Alfred App**](https://www.alfredapp.com) *WITHOUT* having to go through a browser redirect.
+Also works for Google Meetings (will be opened in a browser).
 
 ![Screenshot](images/screenshot.png)
 
@@ -32,10 +33,10 @@ Download and install the workflow (either [build from source](https://github.com
 
 
 ### OAuth
-1. Invoke the Alfred workflow with `zm` and open the Google Authentication Page by actioning the first entry: ![Open Google Authentication](images/open_google_auth.png)
+1. Invoke the Alfred workflow with `jm` and open the Google Authentication Page by actioning the first entry: ![Open Google Authentication](images/open_google_auth.png)
 1. Copy the verification code
 1. Invoke the workflow again and action the second entry `2. Enter Verification Code`: ![Enter Verification Code](images/enter_code.png)
-1. Paste the verification code in the Alfred prompt after `zm code `: ![Paste Code](images/paste_code.png)
+1. Paste the verification code in the Alfred prompt after `jm code `: ![Paste Code](images/paste_code.png)
 1. The final OAuth tokens will be saved at `~/.zoom-alfred-workflow/tokens`: ![Tokens saved](images/tokens_saved.png)
 1. Contratulations. You can now join your meetings without having to close annoying redirect-pages in the browser!
 ![Screenshot](images/screenshot.png)
@@ -43,8 +44,8 @@ Download and install the workflow (either [build from source](https://github.com
 ## How to build
 
 ```bash
-git clone https://github.com/gseitz/zoom-alfred-workflow
-cd zoom-alfred-workflow
+git clone https://github.com/leonard84/join-meetings-alfred-workflow
+cd join-meetings-alfred-workflow
 # builds the rust binary and assembles the alfred workflow in dist/*.alfredworkflow
 make dist
 # builds the rust binary, assembles the alfred workflow, and automatically installs the workflow

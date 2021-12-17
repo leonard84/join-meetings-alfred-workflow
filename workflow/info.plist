@@ -3,16 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>com.gerolfseitz.zoom-alfred-workflow</string>
+	<string>com.github.leonard84.join-meetings-alfred-workflow</string>
 	<key>category</key>
 	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
-		<key>7DD3BDE5-A157-42E5-9376-F681FB50A4EE</key>
+		<key>1DD3BDE5-A157-42E5-9376-F681FB50A4EE</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>9F7A3413-F873-46D3-AFE8-D9853BF804AE</string>
+				<string>1F7A3413-F873-46D3-AFE8-D9853BF804AE</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -23,13 +23,13 @@
 		</array>
 	</dict>
 	<key>createdby</key>
-	<string>Gerolf Seitz</string>
+	<string>Gerolf Seitz, Leonard Brünings</string>
 	<key>description</key>
-	<string>Join upcoming Zoom meetings without opening the intermediary browser page</string>
+	<string>Join upcoming Zoom/Google meetings.</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Zoom Alfred Workflow</string>
+	<string>Meeting Alfred Workflow</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -47,7 +47,7 @@
 			<key>type</key>
 			<string>alfred.workflow.action.openurl</string>
 			<key>uid</key>
-			<string>9F7A3413-F873-46D3-AFE8-D9853BF804AE</string>
+			<string>1F7A3413-F873-46D3-AFE8-D9853BF804AE</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -56,6 +56,10 @@
 			<dict>
 				<key>alfredfiltersresults</key>
 				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
@@ -63,7 +67,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>zm</string>
+				<string>jm</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -75,7 +79,7 @@
 				<key>runningsubtext</key>
 				<string>Wait for it...</string>
 				<key>script</key>
-				<string>./zoom-alfred-workflow $1</string>
+				<string>./join-meetings-alfred-workflow  $1</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -83,7 +87,7 @@
 				<key>subtext</key>
 				<string></string>
 				<key>title</key>
-				<string>Checking your schedule for Zoom meetings</string>
+				<string>Checking your schedule for Zoom/Google meetings</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -92,23 +96,23 @@
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>7DD3BDE5-A157-42E5-9376-F681FB50A4EE</string>
+			<string>1DD3BDE5-A157-42E5-9376-F681FB50A4EE</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
 	<key>uidata</key>
 	<dict>
-		<key>7DD3BDE5-A157-42E5-9376-F681FB50A4EE</key>
+		<key>1DD3BDE5-A157-42E5-9376-F681FB50A4EE</key>
 		<dict>
 			<key>xpos</key>
 			<integer>50</integer>
 			<key>ypos</key>
 			<integer>50</integer>
 		</dict>
-		<key>9F7A3413-F873-46D3-AFE8-D9853BF804AE</key>
+		<key>1F7A3413-F873-46D3-AFE8-D9853BF804AE</key>
 		<dict>
 			<key>xpos</key>
 			<integer>230</integer>
@@ -116,6 +120,10 @@
 			<integer>50</integer>
 		</dict>
 	</dict>
+	<key>variablesdontexport</key>
+	<array/>
+	<key>version</key>
+	<string>1.0.0</string>
 	<key>webaddress</key>
 	<string></string>
 </dict>

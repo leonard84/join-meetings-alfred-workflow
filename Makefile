@@ -10,10 +10,10 @@ build:
 dist: build
 	mkdir -p dist
 	cp -R workflow dist
-	cp target/release/zoom-alfred-workflow dist/workflow/
-	cd dist/workflow && strip zoom-alfred-workflow
-	cd dist/workflow && zip ../zoom-alfred-workflow.alfredworkflow *
+	cp target/release/join-meetings-alfred-workflow dist/workflow/
+	cd dist/workflow && strip join-meetings-alfred-workflow
+	cd dist/workflow && zip ../join-meetings-alfred-workflow.alfredworkflow *
 
 
 install: dist
-	open dist/zoom-alfred-workflow.alfredworkflow
+	open dist/join-meetings-alfred-workflow.alfredworkflow

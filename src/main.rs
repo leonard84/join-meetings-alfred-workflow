@@ -55,7 +55,9 @@ fn create_app_config<'a>() -> App<'a, 'a> {
 }
 
 fn perform_cli_action<'a>(cli_args: ArgMatches) -> Vec<Item<'a>> {
-    let app_home = dirs::home_dir().unwrap().join(".zoom-alfred-workflow");
+    let app_home = dirs::home_dir()
+        .unwrap()
+        .join(".join-meetings-alfred-workflow");
     if !app_home.exists() {
         fs::create_dir_all(&app_home).unwrap();
     };
@@ -67,7 +69,7 @@ fn perform_cli_action<'a>(cli_args: ArgMatches) -> Vec<Item<'a>> {
 
     match read_secret(app_home.join("client_secret.json").as_path()) {
         Err(_) => {
-            items.push(alfred::ItemBuilder::new("~/.zoom-alfred-workflow/client_secret.json not found")
+            items.push(alfred::ItemBuilder::new("~/.join-meetings-alfred-workflow/client_secret.json not found")
                 .subtitle("Follow this guide on creating client credentials")
                 .arg("https://developers.google.com/youtube/registering_an_application#Create_OAuth2_Tokens")
                 .into_item());
@@ -78,7 +80,7 @@ fn perform_cli_action<'a>(cli_args: ArgMatches) -> Vec<Item<'a>> {
             );
             items.push(
                 alfred::ItemBuilder::new("Finally, download the json file")
-                    .subtitle("to ~/.zoom-alfred-workflow/client_secret.json")
+                    .subtitle("to ~/.join-meetings-alfred-workflow/client_secret.json")
                     .into_item(),
             );
         }
