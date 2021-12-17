@@ -1,8 +1,8 @@
 [package]
 name = "zoom-alfred-workflow"
 version = "0.1.0"
-authors = ["Gerolf Seitz <gerolf.seitz@gmail.com>"]
-edition = "2018"
+authors = ["Gerolf Seitz <gerolf.seitz@gmail.com>", "Leonard Brünings <lord_damokles@gmx.net>"]
+edition = "2021"
 
 [dependencies]
 google-calendar3 = "*"
