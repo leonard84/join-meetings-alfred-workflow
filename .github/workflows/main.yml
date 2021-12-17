@@ -97,8 +97,8 @@ jobs:
                     mkdir -p dist
                     cp -R workflow dist
                     cp target/release/join-meetings-alfred-workflow dist/workflow/
-                    cd dist/workflow && strip join-meetings-alfred-workflow
-                    cd dist/workflow && zip ../join-meetings-alfred-workflow.alfredworkflow *
+                    pushd dist/workflow && strip join-meetings-alfred-workflow && popd
+                    pushd dist/workflow && zip ../join-meetings-alfred-workflow.alfredworkflow * && popd
 
             - name: Archive alfredworkflow
               uses: actions/upload-artifact@v2
