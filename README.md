@@ -1,4 +1,4 @@
-# Zoom Alfred Workflow
+# Join Meetings Alfred Workflow
 
 ## TL;DR
 Directly join [**Zoom**](https://www.zoom.us) meetings scheduled in **Google Calendar** via [**Alfred App**](https://www.alfredapp.com) *WITHOUT* having to go through a browser redirect.
@@ -14,12 +14,12 @@ The workflow lists all meetings in the next 48 hours with a zoom link in a Googl
 Zoom links with a name rather than a zoom room number are currently not supported.
 
 ## What do I need?
-1. Zoom app
+1. Zoom app (or browser for Google Meetings)
 1. Alfred + Powerpack
 1. Google Account
 
 ## Installation and Setup
-Download and install the workflow (either [build from source](https://github.com/gseitz/zoom-alfred-workflow#how-to-build) or from the [releases page](https://github.com/gseitz/zoom-alfred-workflow/releases) on github)
+Download and install the workflow (either [build from source](https://github.com/leonard84/join-meetings-alfred-workflow#how-to-build) or from the [releases page](https://github.com/leonard84/join-meetings-alfred-workflow/releases) on github)
 
 ### Client Credentials
 1. Create a new project in the [Google Developer Console](https://console.developers.google.com/apis/credentials)
@@ -29,7 +29,7 @@ Download and install the workflow (either [build from source](https://github.com
 ![Application Type](images/application_type.png)
 1. Download the credentials file
     ![Download](images/download_credentials.png)
-1. Copy the credentials file to `~/.zoom-alfred-workflow/client_secret.json`
+1. Copy the credentials file to `~/.join-meetings-alfred-workflow/client_secret.json`
 
 
 ### OAuth
@@ -37,7 +37,7 @@ Download and install the workflow (either [build from source](https://github.com
 1. Copy the verification code
 1. Invoke the workflow again and action the second entry `2. Enter Verification Code`: ![Enter Verification Code](images/enter_code.png)
 1. Paste the verification code in the Alfred prompt after `jm code `: ![Paste Code](images/paste_code.png)
-1. The final OAuth tokens will be saved at `~/.zoom-alfred-workflow/tokens`: ![Tokens saved](images/tokens_saved.png)
+1. The final OAuth tokens will be saved at `~/.join-meetings-alfred-workflow/tokens`: ![Tokens saved](images/tokens_saved.png)
 1. Contratulations. You can now join your meetings without having to close annoying redirect-pages in the browser!
 ![Screenshot](images/screenshot.png)
 
