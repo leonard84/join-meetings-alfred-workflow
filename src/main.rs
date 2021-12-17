@@ -180,7 +180,7 @@ fn verify_code(
     secret: ConsoleApplicationSecret,
     token_file: &String,
     verification_code: &String,
-) -> Result<Token, Box<Error>> {
+) -> Result<Token, Box<dyn Error>> {
     let delegate = UserProvidedCodeAuthenticatorDelegate {
         code: verification_code.clone(),
     };
