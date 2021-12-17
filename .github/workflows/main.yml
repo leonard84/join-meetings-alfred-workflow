@@ -1,0 +1,107 @@
+on: [push, pull_request]
+
+name: Quickstart
+
+jobs:
+    check:
+        name: Check
+        runs-on: macos-latest
+        steps:
+            - name: Checkout sources
+              uses: actions/checkout@v2
+
+            - name: Install stable toolchain
+              uses: actions-rs/toolchain@v1
+              with:
+                  profile: minimal
+                  toolchain: stable
+                  override: true
+
+            - name: Run cargo check
+              uses: actions-rs/cargo@v1
+              with:
+                  command: check
+
+    test:
+        name: Test Suite
+        runs-on: macos-latest
+        steps:
+            - name: Checkout sources
+              uses: actions/checkout@v2
+
+            - name: Install stable toolchain
+              uses: actions-rs/toolchain@v1
+              with:
+                  profile: minimal
+                  toolchain: stable
+                  override: true
+
+            - name: Run cargo test
+              uses: actions-rs/cargo@v1
+              with:
+                  command: test
+
+    lints:
+        name: Lints
+        runs-on: macos-latest
+        steps:
+            - name: Checkout sources
+              uses: actions/checkout@v2
+
+            - name: Install stable toolchain
+              uses: actions-rs/toolchain@v1
+              with:
+                  profile: minimal
+                  toolchain: stable
+                  override: true
+                  components: rustfmt, clippy
+
+            - name: Run cargo fmt
+              uses: actions-rs/cargo@v1
+              with:
+                  command: fmt
+                  args: --all -- --check
+
+            - name: Run cargo clippy
+              uses: actions-rs/cargo@v1
+              with:
+                  command: clippy
+                  args: -- -D warnings
+
+    dist:
+        name: Dist
+        runs-on: macos-latest
+        needs:
+            - check
+            - test
+        steps:
+            - name: Checkout sources
+              uses: actions/checkout@v2
+
+            - name: Install stable toolchain
+              uses: actions-rs/toolchain@v1
+              with:
+                  profile: minimal
+                  toolchain: stable
+                  override: true
+                  components: rustfmt, clippy
+
+            - name: Run cargo build
+              uses: actions-rs/cargo@v1
+              with:
+                  command: build
+                  args:  --release
+
+            - name: Package alfredworkflow
+              shell: |
+                    mkdir -p dist
+                    cp -R workflow dist
+                    cp target/release/join-meetings-alfred-workflow dist/workflow/
+                    cd dist/workflow && strip join-meetings-alfred-workflow
+                    cd dist/workflow && zip ../join-meetings-alfred-workflow.alfredworkflow *
+
+            - name: Archive alfredworkflow
+              uses: actions/upload-artifact@v2
+              with:
+                  name: alfredworkflow
+                  path: dist/join-meetings-alfred-workflow.alfredworkflow
