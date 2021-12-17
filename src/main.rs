@@ -306,7 +306,7 @@ fn main_flow<'a>(
         let zoom = e
             .description
             .and_then(extract_zoom_link)
-            .or(e.location.and_then(extract_zoom_link))
+            .or_else(|| e.location.and_then(extract_zoom_link))
             .or(meeting_code);
 
         let summary = e.summary.unwrap();
