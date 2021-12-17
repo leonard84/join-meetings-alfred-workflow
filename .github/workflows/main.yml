@@ -93,7 +93,7 @@ jobs:
                   args:  --release
 
             - name: Package alfredworkflow
-              shell: |
+              run: |
                     mkdir -p dist
                     cp -R workflow dist
                     cp target/release/join-meetings-alfred-workflow dist/workflow/
