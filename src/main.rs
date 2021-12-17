@@ -99,7 +99,7 @@ fn perform_cli_action<'a>(cli_args: ArgMatches) -> Vec<Item<'a>> {
         }
     };
 
-    return items;
+    items
 }
 
 fn determine_permission_action(matches: ArgMatches) -> PermissionAction {
@@ -110,7 +110,7 @@ fn determine_permission_action(matches: ArgMatches) -> PermissionAction {
             return PermissionAction::UserShouldEnterCode;
         }
     }
-    return PermissionAction::ShowVerificationURL;
+    PermissionAction::ShowVerificationURL
 }
 
 enum PermissionAction {
@@ -128,7 +128,7 @@ fn read_secret(path: &Path) -> io::Result<ConsoleApplicationSecret> {
 }
 
 fn new_client() -> Client {
-    return Client::with_connector(HttpsConnector::new(hyper_rustls::TlsClient::new()));
+    Client::with_connector(HttpsConnector::new(hyper_rustls::TlsClient::new()))
 }
 
 fn extract_zoom_link(txt: String) -> Option<String> {
@@ -154,7 +154,7 @@ fn extract_zoom_link(txt: String) -> Option<String> {
         .captures(txt.as_str())
         .map(|c| c.get(1).unwrap().as_str().to_owned());
 
-    return zoom.or(google_meet);
+    zoom.or(google_meet)
 }
 
 struct UrlExtractingAuthenticatorDelegate<'a> {
@@ -191,8 +191,8 @@ fn get_verification_url(secret: ConsoleApplicationSecret, token_file: &String) -
         Some(FlowType::InstalledInteractive),
     );
     let token = alfred_auth.token(&["https://www.googleapis.com/auth/calendar.events.readonly"]);
-    assert_eq!(token.is_err(), true);
-    return urdel;
+    assert!(token.is_err());
+    urdel
 }
 
 fn verify_code(
@@ -210,8 +210,8 @@ fn verify_code(
         DiskTokenStorage::new(token_file).unwrap(),
         Some(FlowType::InstalledInteractive),
     );
-    let token = alfred_auth.token(&["https://www.googleapis.com/auth/calendar.events.readonly"]);
-    return token;
+
+    alfred_auth.token(&["https://www.googleapis.com/auth/calendar.events.readonly"])
 }
 
 fn permission_flow<'a>(
